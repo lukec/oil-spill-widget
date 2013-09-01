@@ -1,10 +1,56 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Oil Spill Counter Widget">
+    <meta name="author" content="Luke Closs">
+
+    <title>Oil Spill Widget Example Code</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
   </head>
+
   <body>
-    <h1>Oil Spill widget example code</h1>
-    <div id="spillWidget" data-litres-per-day="186400" data-start-date="2013-01-01" data-initial-litres-spilled="0" ></div>
-    <script src="spill-counter.js"></script>
+
+    <div class="container">
+
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <h1>Oil Spill Counter Widget</h1>
+        <p>Embed the oil spill counter widget on your website to show your visitors how much oil is leaking from various sites!</p>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <h2>See it in action:</h2>
+          <p class="lead">Litres spilled at Cold Lake</p>
+          <div id="spillWidget" data-litres-per-day="186400" data-start-date="2013-01-01" data-initial-litres-spilled="0" ></div>
+          <script src="spill-counter.js"></script>
+        </div>
+        <div class="col-md-6">
+          <h2>How it works:</h2>
+          <p class="lead">Simply include the following code snippet on your website to have an oil spill counter!</p>
+          <pre>
+&lt;div id="spillWidget"
+        data-litres-per-day="186400"
+        data-start-date="2013-01-01"
+        data-initial-litres-spilled="0" &gt;&lt;/div&gt;
+&lt;script src="http://spill-widget.openwe.st/spill-counter.js"&gt;&lt;/script&gt;
+          </pre>
+          <p class="lead">
+            Note that you can change the values to change how fast the widget increments, based on the latest data for various oil spills.
+          </p>
+
+        </div>
+      </div>
+
+      <div class="row">
+          <p class="lead">Created by <a href="https://twitter.com/lukec">@lukec</a>. Code is available on <a href="https://github.com/lukec/oil-spill-widget">Github</a>.</p>
+      </div>
+    </div> <!-- /container -->
+
   </body>
 </html>
+
