@@ -2,6 +2,13 @@ Oil Spill Counter Widget
 
 todo:
 
+- code uses flipchart (from Recollect)
+- make the example page prettier
+- document
+- publish on github pages
+
+
+Done:
 - Serve a .js file
 - Build an example page
 - .js script tag is replaced with a div
@@ -9,6 +16,4 @@ todo:
 - code computes current Litres spilled
 - code shows count in div
 - code increments count every 5s
-- code uses flipchart (from Recollect)
 - compile all js into one
-- document
