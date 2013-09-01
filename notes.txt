@@ -1,0 +1,14 @@
+Oil Spill Counter Widget
+
+todo:
+
+- Serve a .js file
+- Build an example page
+- .js script tag is replaced with a div
+    - (review biodiesel code)
+- code computes current Litres spilled
+- code shows count in div
+- code increments count every 5s
+- code uses flipchart (from Recollect)
+- compile all js into one
+- document
