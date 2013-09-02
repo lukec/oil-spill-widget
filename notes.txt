@@ -2,10 +2,8 @@ Oil Spill Counter Widget
 
 todo:
 
-- code uses flipchart (from Recollect)
-- make the example page prettier
-- document
 - publish on github pages
+- provide gzipped js too
 
 
 Done:
@@ -17,3 +15,6 @@ Done:
 - code shows count in div
 - code increments count every 5s
 - compile all js into one
+- code uses flipchart (from Recollect)
+- make the example page prettier
+- document

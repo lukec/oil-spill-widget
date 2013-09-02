@@ -1,9 +1,9 @@
 $div = $("#spillWidget")
 $div.html '<link rel="stylesheet" type="text/css" href="http://spill-widget.openwe.st/css/counter.css" /><div id="spillCounter" class="flip-counter"></div>'
 opts =
-    per_day:                $div.data('litres-per-day')         or 1000
-    start_date:             $div.data('start-date')             or "2013-01-01"
-    initial_litres_spilled: $div.data('initial-litres-spilled') or 0
+    per_day:                $div.data('litres-per-day')         or 3179.75
+    start_date:             $div.data('start-date')             or "2013-09-02"
+    initial_litres_spilled: $div.data('initial-litres-spilled') or 1256953
 
 litres_of_oil_spilled_so_far = ->
     start_date = moment(opts.start_date, "YYYY-MM-DD")
