@@ -7,13 +7,14 @@ opts =
 
 litres_of_oil_spilled_so_far = ->
     start_date = moment(opts.start_date, "YYYY-MM-DD")
-    now = moment()
     i = start_date
     rate = opts.per_day
     litres = opts.initial_litres_spilled
-    while i < now
+    today_start = moment().startOf('day')
+    while i < today_start
         i.add 'days', 1
         litres += rate
+    now = moment()
     litres += now.hours() * (rate / 24)
     litres += now.minutes() * (rate / 24 / 60 )
     litres += now.seconds() * (rate / 24 / 60 / 60 )
