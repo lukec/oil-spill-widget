@@ -35,7 +35,7 @@ var flipCounter = function(d, options){
 
 	for (var opt in defaults) o[opt] = (opt in o) ? o[opt] : defaults[opt];
 
-	var digitsOld = [], digitsNew = [], subStart, subEnd, x, y, nextCount = null, newDigit, newComma,
+	var digitsOld = [], digitsNew = [], subStart, subEnd, x, y, nextCount = null, newDigit, newComma, newDec
 	best = {
 		q: null,
 		pace: 0,
@@ -335,9 +335,17 @@ var flipCounter = function(d, options){
 		animate();
 	}
 
+        function decimalPlaces(num){
+                return (String(num).split('.')[1] || []).length
+        }
+
+        function roundValue(num){
+                return Number(num).toFixed(decimalPlaces(o.inc));
+        }
+
 	// Creates array of digits for easier manipulation
 	function splitToArray(input){
-		return input.toString().split("").reverse();
+		return roundValue(input).toString().split("").reverse();
 	}
 
 	// Adds new digit
@@ -380,8 +388,10 @@ var flipCounter = function(d, options){
 	// Sets the correct digits on load
 	function initialDigitCheck(init){
 		// Creates the right number of digits
-		var initial = init.toString(),
-		bit = 1, i;
+		var initial = roundValue(init).toString();
+                var decimals = decimalPlaces(initial);
+		var bit = 1;
+                var i;
 
         if(o.lead){
             var count = o.lead;
@@ -390,17 +400,27 @@ var flipCounter = function(d, options){
         }
 
         for (i = 0; i < count; i++){
-			newDigit = doc.createElement("ul");
-			newDigit.className = 'cd';
-			newDigit.id = divId + '_d' + i;
-			newDigit.innerHTML = newDigit.innerHTML = '<li class="t" id="' + divId + '_t_d' + i + '"></li><li class="b" id="' + divId + '_b_d' + i + '"></li>';
-			div.insertBefore(newDigit, div.firstChild);
-			if (bit != (count) && bit % 3 == 0){
-				newComma = doc.createElement("ul");
-				newComma.className = 'cd';
-				newComma.innerHTML = '<li class="s"></li>';
-				div.insertBefore(newComma, div.firstChild);
-			}
+                        if (decimals>0 && decimals==i) {
+                                    newDec = doc.createElement("ul");
+                                    newDec.className = 'cd';
+                                    newDec.innerHTML = '<li class="p"></li>';
+                                    div.insertBefore(newDec, div.firstChild);
+                        }
+                        else {
+                            newDigit = doc.createElement("ul");
+                            newDigit.className = 'cd';
+                            newDigit.id = divId + '_d' + i;
+                            newDigit.innerHTML = newDigit.innerHTML = '<li class="t" id="' + divId + '_t_d' + i + '"></li><li class="b" id="' + divId + '_b_d' + i + '"></li>';
+                            div.insertBefore(newDigit, div.firstChild);
+                            var ibit = bit;
+                            if (decimals > 0) ibit -= 1 + decimals;
+                            if (ibit > 0 && bit != (count) && ibit % 3 == 0){
+                                    newComma = doc.createElement("ul");
+                                    newComma.className = 'cd';
+                                    newComma.innerHTML = '<li class="s"></li>';
+                                    div.insertBefore(newComma, div.firstChild);
+                            }
+                        }
 			bit++;
 		}
 		// Sets them to the right number
@@ -413,6 +433,7 @@ var flipCounter = function(d, options){
         }
 
 		for (i = 0; i < count; i++){
+                    if (digits[i] == '.') continue;
 			doc.getElementById(divId + "_t_d" + i).style.backgroundPosition = '0 -' + (digits[i] * o.tFH) + 'px';
 			doc.getElementById(divId + "_b_d" + i).style.backgroundPosition = '0 -' + (digits[i] * o.bFH + o.bOffset) + 'px';
 		}

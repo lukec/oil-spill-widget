@@ -14,3 +14,4 @@ So you can have multiple counters on a page, just make sure each one has a class
 .flip-counter li.t{background-position:0 0;width:53px;height:39px}
 .flip-counter li.b{background-position:0 0;width:53px;height:64px}
 .flip-counter li.s{background-position:-53px -1030px;width:14px;height:103px}
+.flip-counter li.p{background-position:-67px -1030px;width:14px;height:103px}
