@@ -24,8 +24,9 @@ litres_of_oil_spilled_so_far = ->
 $ ->
     litres_per_second = opts.per_day / 24 / 60 / 60
     seconds_per_litre = 1 / litres_per_second
-    pace = seconds_per_litre * 1000
+    
     counter = new flipCounter "spillCounter",
         value: litres_of_oil_spilled_so_far()
-        pace: parseInt(pace)
+        pace: seconds_per_litre * 10 # centiseconds
+        inc: .01
 
