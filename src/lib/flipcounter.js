@@ -10,6 +10,7 @@
  *
  *
  * IBS EDITED TO INCLUDE NEW OPTION FOR LEADING ZEROS
+ * Kevinj: 2013-09-14 - Add the ability to increment by decimal places
  *
  */
 
