@@ -18,7 +18,6 @@ litres_of_oil_spilled_so_far = ->
     litres += now.hours() * (rate / 24)
     litres += now.minutes() * (rate / 24 / 60 )
     litres += now.seconds() * (rate / 24 / 60 / 60 )
-    litres = parseInt litres
     return litres
 
 $ ->
