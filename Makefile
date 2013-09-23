@@ -1,6 +1,6 @@
 TARGET_DIR=/var/www/spill-widget
 
-JS_SRC=src/lib/zepto.min.js \
+JS_SRC=src/lib/jquery-1.10.2.min.js \
        src/lib/flipcounter.js \
        src/lib/moment.min.js \
        build/spill.js
